@@ -6,7 +6,8 @@ open Core
    the background image and returning the foreground image. *)
 let transform ~foreground ~background =
   Image.mapi foreground ~f:(fun ~x ~y p ->
-    if Pixel.blue p > Pixel.green p + Pixel.red p
+    if Float.O.(Pixel.blue p // Image.max_val foreground >. 0.98)
+       || Pixel.blue p > Pixel.red p + Pixel.green p
     then Image.get background ~x ~y
     else p)
 ;;

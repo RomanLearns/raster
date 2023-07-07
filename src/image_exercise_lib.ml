@@ -8,5 +8,6 @@ let command =
     ; "blur", Blur.command
     ; "dither", Dither.command
     ; "stenography", Stenography.command
+    ; "edge", Edge.command
     ]
 ;;

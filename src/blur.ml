@@ -7,9 +7,9 @@ let transform image ~radius =
     Image.slice
       image
       ~x_start:(max (x - radius) 0)
-      ~x_end:(min (x + radius) (Image.width image))
+      ~x_end:(min (x + radius) (Image.width image - 1))
       ~y_start:(max (y - radius) 0)
-      ~y_end:(min (y + radius) (Image.height image))
+      ~y_end:(min (y + radius) (Image.height image - 1))
     |> Image.mean_pixel)
 ;;
 
